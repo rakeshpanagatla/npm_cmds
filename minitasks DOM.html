@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+<!-- THIS IS TASK 1 -->
+
+	<!-- <script src="scriptp.js"></script> -->
+	<!-- <div>This is div</div>
+	<script>
+		var res = document.querySelector('div');
+		res.addEventListener('mouseover', function(event){
+			event.target.style.color = "yellow";
+			event.target.style.fontFamily = "monospace";
+		});
+	</script> -->
+
+
+	
+
+	<!--THIS IS TASK 2  -->
+	<!-- <button type="button" onclick="foo()">Click</button>
+	<script>
+		function foo(){
+			var res=prompt("Enter ur input");
+			var span = document.createElement('span');
+			span.innerHTML = res;
+			document.body.append(span);
+		}
+	</script> -->
+
+
+
+	
+	<!-- THIS IS TASK 3 -->
+	<!-- <div>THIS IS A DIV</div>
+	<script>
+		document.querySelector('div').addEventListener('mouseover',function(event){
+			var p = document.createElement('p');
+			p.style.fontSize = "30px";
+			p.style.color = "red";
+			p.innerHTML = 'Client X/Y: ${event.clientX},${event.clientY}';
+			//Template literals: usage of ${...} instead of string concatanation 
+			document.body.append(p);
+		});
+	</script> -->
+
+
+
+
+	<!-- THIS IS TASK 4 -->
+	<!-- <textarea name="" id="main" cols="30" rows="10"></textarea>
+	<script>
+		document.querySelector('#main').addEventListener('keyup', function(event){
+			console.log(event.target.value.length);
+		})
+	</script> -->
+
+
+
+
+
+	<!--DATE MANIPULATION TASK DOB FROM USER-->
+	<script>
+		
+		var parentDiv = document.createElement('div');
+		parentDiv.setAttribute('style', 'padding-top:20px');
+		parentDiv.setAttribute('style', 'text-align: center');
+
+		var inputbox = document.createElement('input');
+		inputbox.setAttribute('type','date');
+		inputbox.setAttribute('id', 'DOB');
+		parentDiv.appendChild(inputbox);
+		
+
+
+		var button = document.createElement('button');
+		button.innerHTML = 'Display Date';
+		button.setAttribute('onclick','datedisplay()');
+		button.setAttribute('style', 'background-color: blue');
+		parentDiv.appendChild(button);
+
+
+		var result = document.createElement('div');
+		result.setAttribute('id','result');
+		result.setAttribute('style', 'text-align: center');
+
+
+		
+		function datedisplay(){
+			var input = document.getElementById('DOB').value;
+			//console.log(typeof(inputstr));
+			if(Date.parse(input)){
+				var inputdate = new Date(input);
+				console.log(inputdate);
+				var currdate = new Date();
+				console.log(currdate);
+
+				var millisecdiff = parseInt(currdate.getTime()) - parseInt(inputdate.getTime());
+				console.log(millisecdiff);
+
+				var secdiff = mathfloor(millisecdiff,1000);
+				console.log(secdiff);
+
+				var mindiff = mathfloor(secdiff, 60);
+				console.log(mindiff);
+
+				var hourdiff = mathfloor(mindiff, 60);
+				console.log(hourdiff);
+
+				var daydiff = mathfloor(hourdiff, 24);
+				console.log(daydiff);
+
+				var mondiff = getmonths(currdate, inputdate);
+				console.log(mondiff);
+
+				var yeardiff = getyears(currdate, inputdate);
+				console.log(yeardiff);
+
+
+				result.innerHTML= `
+				given input date is ${inputdate}<br>
+				year ${yeardiff}<br>
+				month ${mondiff}<br>
+				day ${daydiff}<br>
+				hour ${hourdiff}<br>
+				minute ${mindiff}<br>
+				second ${secdiff}<br>
+				milli-second ${millisecdiff}<br>
+				`;
+				}
+				else{
+					result.innerText = 'Invalid Date';
+					//console.log("invalid date");	
+				}
+
+				document.body.appendChild(result);
+		}
+
+		function mathfloor(value1,value2){
+			return Math.floor(value1/value2);
+
+		}
+		function getyears(value1, value2){
+			var curryear = value1.getFullYear();
+			var inputyear = value2.getFullYear();
+			return curryear-inputyear
+
+		}
+		function getmonths(value1, value2){
+			var year = getyears(value1, value2);
+			var month = (year*12)+(value1.getMonth()-value2.getMonth());
+			return month;
+
+		}
+			
+		
+
+
+
+
+
+		document.body.appendChild(parentDiv);
+
+	</script>
+</body>
+</html>

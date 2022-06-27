@@ -1,0 +1,88 @@
+Node commands!!!!!
+
+Node - Runtime environment to run JS at the backend and frontend with react
+
+NPM - Node Package Manager - Github
+Yarn - Facebook
+
+Commands:
+
+check node version 
+> node -v
+
+check npm version 
+> npm -v
+
+!!!!! Initialization:
+> npm init
+> npm init -y    (the flag represents that npm is initialized with default config values)
+
+!!!!! Set default Config for Init :
+> npm config set init-author-name "Manohar"
+> npm config set init-license "MIT"
+
+Get Default Config for Init:
+> npm config get init-author-name 
+>npm config get init-license
+
+Delete Default Config for Init:
+> npm config delete init-author-name
+> npm config delete init-license
+
+!!!!! Installing packages :
+> npm install lodash
+> npm install lodash@4.16.1
+> npm install react
+
+
+Q) Dependencies vs Dev-dependencies and Q) package.JSON vs package-lock.JSON
+
+** To save development dependencies seperately from project dependencies we use the below command.
+**  dev-dependencies do not impact the project at all. Below library eslint is used for aligning and beautifying the code.
+** In the production, we do not want to install dev-dependencies which take extra space and time to install and are of no use in the production. So, it is a good practice to seperate dev-dependencies and project dependencies
+
+> npm install eslint --save-dev
+
+> npm install eslint -g  (flag -  installed globally)
+> npm root -g  (root/location where it is installed)
+
+
+** when we push the projects into github we exclude the node_modules and package-lock.json folders to save some space.
+** To reinstall these two folders we use the command::
+> npm install
+
+> npm install --prod ( It installs only the dependencies that are needed in production)
+
+
+> npm unistall/remove react 
+
+shorthand  to install
+> npm i react lodash
+
+
+List:
+> npm list --depth 0
+> npm list --depth 1
+
+
+
+Semantic Versioning:
+13.11.3
+.3 => .4  (Bug Fix)
+.11 => .12  (Minor Change)
+.13 => .14  (Major change)
+
+
+
+Updating Package:
+> npm update lodash
+** In package.json, if dependency has caret symbol(^4.20.2) infront of it. when you update that particular dependency, it installs the latest version available i.e, changes second semantic(minor change).
+** If the dependency has tilde symbpl(~4.20.2), it installs the version with latest bug fix i.e, it changes 3rd semantic (bug fix)
+
+
+
+**To get list of all commands that can be used as a keyword in scripts. the command used is
+> npm
+>npm keyword (Eg. npm start)  (to run that inbuilt command)
+>npm run rakesh (to run custom built command)
+**These are basically shortcuts or alias names for commands
